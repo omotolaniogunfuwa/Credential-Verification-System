@@ -11,3 +11,5 @@ Q
 !tests/credential-issuance.test.ts,8/a/8a655c35c0ef4977814e5de81eea3103aaff30f0
 U
 %tests/credential-verification.test.ts,5/f/5fd7d6b4a5140ba3e0ab9856f149ca4bb4d5d9ee
+Q
+!tests/identity-management.test.ts,b/5/b5eaff45412a273b2888327788a2927f6e8c0349
