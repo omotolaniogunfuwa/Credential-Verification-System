@@ -9,3 +9,5 @@ V
 &contracts/credential-verification.clar,4/2/42f6352878860c2f030316a2872403c67e4ab0be
 Q
 !tests/credential-issuance.test.ts,8/a/8a655c35c0ef4977814e5de81eea3103aaff30f0
+U
+%tests/credential-verification.test.ts,5/f/5fd7d6b4a5140ba3e0ab9856f149ca4bb4d5d9ee

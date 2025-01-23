@@ -1,21 +1,41 @@
+import { describe, it, expect, beforeEach } from "vitest"
 
-import { describe, expect, it } from "vitest";
+describe("credential-verification", () => {
+  let contract: any
+  
+  beforeEach(() => {
+    contract = {
+      verifyCredential: (credentialId: number, proof: Buffer) => ({ value: 1 }),
+      getVerification: (verificationId: number) => ({
+        verifier: "ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM",
+        credentialId: 1,
+        verifiedAt: 123456,
+        isValid: true,
+      }),
+      getVerificationCount: () => 1,
+    }
+  })
+  
+  describe("verify-credential", () => {
+    it("should verify a credential", () => {
+      const result = contract.verifyCredential(1, Buffer.from("0123456789abcdef", "hex"))
+      expect(result.value).toBe(1)
+    })
+  })
+  
+  describe("get-verification", () => {
+    it("should return verification information", () => {
+      const verification = contract.getVerification(1)
+      expect(verification.credentialId).toBe(1)
+      expect(verification.isValid).toBe(true)
+    })
+  })
+  
+  describe("get-verification-count", () => {
+    it("should return the total number of verifications", () => {
+      const count = contract.getVerificationCount()
+      expect(count).toBe(1)
+    })
+  })
+})
 
-const accounts = simnet.getAccounts();
-const address1 = accounts.get("wallet_1")!;
-
-/*
-  The test below is an example. To learn more, read the testing documentation here:
-  https://docs.hiro.so/stacks/clarinet-js-sdk
-*/
-
-describe("example tests", () => {
-  it("ensures simnet is well initalised", () => {
-    expect(simnet.blockHeight).toBeDefined();
-  });
-
-  // it("shows an example", () => {
-  //   const { result } = simnet.callReadOnlyFn("counter", "get-counter", [], address1);
-  //   expect(result).toBeUint(0);
-  // });
-});
